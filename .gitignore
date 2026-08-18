@@ -1,0 +1,27 @@
+# Python virtual environments
+deploy/
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test/local files
+test images/
+
+# Environment/secrets
+.env
+.env.*
+
+# Logs
+*.log
