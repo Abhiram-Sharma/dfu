@@ -1,12 +1,26 @@
 from fastapi import FastAPI, UploadFile, File
+from fastapi.middleware.cors import CORSMiddleware
 from io import BytesIO
 import numpy as np
 import tensorflow as tf
+
 
 app = FastAPI(
     title="FastAPI Keras Model Service",
     description="FastAPI service for EfficientDFU diabetic foot ulcer classification",
     version="1.0.0"
+)
+origins = [
+    "https://footulcer.netlify.app",
+    "http://localhost:4200", # Good to keep for local frontend dev
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 model = None
